@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  client:
+    build: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - catch
+    container_name: react-client
+
+  parse:
+    build: ./parseServer
+    ports:
+      - "1337:1337"
+    depends_on:
+      - catch
+    container_name: parse-server
+
+  query:
+    build: ./liveQueryServer
+    ports:
+      - "5000:5000"
+    depends_on:
+      - catch
+    container_name: live-query-server
+
+  catch:
+    image: redis
+    ports:
+      - "6379:6379"
+    container_name: redis-db
+
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    container_name: mongo-db
