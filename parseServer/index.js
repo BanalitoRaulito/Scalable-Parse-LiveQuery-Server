@@ -9,7 +9,7 @@ const parseServer = new ParseServer({
     fileKey: 'myFileKey',
     masterKey: 'mySecretMasterKey',
     liveQuery: {
-        classNames: ['Test', 'TestAgain', 'Todo'],
+        classNames: ['Test', 'TestAgain', 'Todos'],
         redisURL: 'redis://localhost:6379',
         redisOptions: {
             no_ready_check: true,

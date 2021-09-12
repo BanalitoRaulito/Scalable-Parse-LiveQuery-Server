@@ -1,7 +1,15 @@
-import { useTodos } from "../hooks/useTodos"
+import {useEffect, useState} from "react";
 
-export const Todos = () => {
-  const { todos, loading } = useTodos()
+export const Todos = ({query}) => {
+  useEffect(() => {
+    query.find().then(results => {
+      setTodos(results)
+      setLoading(false)
+    })
+  }, [])
+
+  const [loading, setLoading] = useState(true)
+  const [todos, setTodos] = useState("")
 
   return loading ? <div>Loading...</div> : (
     <ul>
