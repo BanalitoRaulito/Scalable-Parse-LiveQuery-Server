@@ -15,10 +15,8 @@ const parseServer = new ParseServer({
             no_ready_check: true,
             retry_strategy: (options) => {
                 if (options.times_connected >= 3) {
-                    // End reconnecting after a specific number of tries and flush all commands with a individual error
                     return new Error('Retry attempts exhausted');
                 }
-                // reconnect after
                 return 1000;
             }
         }
@@ -27,11 +25,10 @@ const parseServer = new ParseServer({
 
 app.use(cors({origin: 'http://localhost:3000'}))
 
-// Serve the Parse API at /parse URL prefix ::: MAIN ENTRY ??
 app.use('/parse', parseServer);
 
 const port = 1337;
 app.listen(port, function() {
-    console.log('Successfully started on: ' + port);
+    console.log('Successfully started Parse Server on port: ' + port);
 });
 
