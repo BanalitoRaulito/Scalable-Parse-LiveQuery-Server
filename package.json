@@ -1,9 +1,0 @@
-{
-  "name": "TestParseServer",
-  "version": "1.0.0",
-  "dependencies": {
-    "express": "^4.17.1",
-    "parse": "^3.3.0",
-    "parse-server": "^4.10.3"
-  }
-}
