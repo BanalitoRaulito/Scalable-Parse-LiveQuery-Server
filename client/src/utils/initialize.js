@@ -1,7 +1,7 @@
 import Parse from "parse";
 
-export const initialize = () => {
-    Parse.initialize('myAppId')
+const initialize = () => {
+    Parse.initialize('myAppId', )
     Parse.serverURL = 'http://localhost:1337/parse' // Parse Server url
     Parse.liveQueryServerURL = 'ws://localhost:5000'
 
@@ -36,3 +36,5 @@ export const initialize = () => {
 
     return {query, todoObject}
 }
+
+export const {query, todoObject} = initialize()
